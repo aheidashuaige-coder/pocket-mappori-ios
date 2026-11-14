@@ -4,9 +4,9 @@ Pocket Mappori 1.7.5.2 的 iOS Web/PWA 版本，包含精灵球主屏图标和�
 
 ## 在 iPhone Safari 中打开
 
-GitHub Pages 启用后，在 iPhone Safari 中打开：
+在 iPhone Safari 中打开：
 
-`https://<你的 GitHub 用户名>.github.io/pocket-mappori-ios/`
+`https://aheidashuaige-coder.github.io/pocket-mappori-ios/`
 
 然后按以下步骤安装到主屏：
 
