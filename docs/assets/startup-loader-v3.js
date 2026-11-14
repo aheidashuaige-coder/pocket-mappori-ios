@@ -1,27 +1,38 @@
-import {
-  s as beginStage,
-  f as finishStage,
-  a as reportIssue,
-  _ as preload,
-} from "./trace-Cz_0O3Cz-fix2.js";
-
 const CDN_BASES = [
   "https://gcore.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
   "https://fastly.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
   "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
 ];
 
-const APPLICATION_DEPENDENCIES = [
-  "./application-BAdagfOj-fix2.js",
-  "./saveDocument-1KD8mP7n-fix2.js",
-  "./trace-Cz_0O3Cz-fix2.js",
-  "./giftDevice-B_3HqteC.js",
-  "./index-BHc6ulPh.js",
-  "./platform-BDeA0pL1.js",
-  "./navigationBridge-BBgDOON_.js",
-  "./files-5weKg9MD.js",
-  "./application-q9Nymd1y.css",
-];
+window.__pocketStartupTrace = window.__pocketStartupTrace || [];
+window.__pocketStartupIssues = window.__pocketStartupIssues || [];
+
+function beginStage(name) {
+  window.__pocketStartupTrace.push({
+    stage: name,
+    started: Math.round(performance.now()),
+    status: "active",
+  });
+}
+
+function finishStage(name, status = "complete", code) {
+  const stage = [...window.__pocketStartupTrace]
+    .reverse()
+    .find((item) => item.stage === name && item.status === "active");
+  if (!stage) return;
+  stage.ended = Math.round(performance.now());
+  stage.status = status;
+  if (code) stage.code = code;
+}
+
+function reportIssue(code, module, error) {
+  window.__pocketStartupIssues.push({
+    stage: "resources",
+    module,
+    code,
+    errorType: error instanceof Error ? error.name : typeof error,
+  });
+}
 
 beginStage("resources");
 
@@ -48,22 +59,12 @@ async function importApplication() {
   );
   for (const base of reachableBases.filter(Boolean)) {
     try {
-      return await preload(
-        () => import(`${base}application-BAdagfOj-fix2.js`),
-        APPLICATION_DEPENDENCIES.map((dependency) =>
-          dependency.startsWith("./") ? `${base}${dependency.slice(2)}` : dependency,
-        ),
-        import.meta.url,
-      );
+      return await import(`${base}application-BAdagfOj-fix2.js`);
     } catch {
       // Try the next CDN before falling back to the GitHub Pages copy.
     }
   }
-  return preload(
-    () => import("./application-BAdagfOj-fix2.js"),
-    APPLICATION_DEPENDENCIES,
-    import.meta.url,
-  );
+  return import("./application-BAdagfOj-fix2.js");
 }
 
 function showError(label, error) {
