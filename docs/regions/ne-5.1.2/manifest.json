@@ -1,0 +1,1226 @@
+{
+  "source": "Natural Earth v5.1.2",
+  "license": "Public domain",
+  "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "originals": {
+    "admin0": {
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson",
+      "bytes": 13287234,
+      "sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255"
+    },
+    "admin1": {
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "bytes": 40726851,
+      "sha256": "22d0e3ad85eb3e27f17cabf8ba2d50e554fbc27a87796ff891d958185da62fb5"
+    }
+  },
+  "countries": 239,
+  "admin1Count": 4589,
+  "translatedAdmin1": 4027,
+  "simplifyDegrees": 0.01,
+  "roundDecimals": 4,
+  "totalBytes": 17485053,
+  "totalGzipBytes": 5160922,
+  "files": [
+    {
+      "file": "AD.json",
+      "bytes": 2739,
+      "gzip": 780
+    },
+    {
+      "file": "AE.json",
+      "bytes": 23218,
+      "gzip": 4962
+    },
+    {
+      "file": "AF.json",
+      "bytes": 89358,
+      "gzip": 24166
+    },
+    {
+      "file": "AG.json",
+      "bytes": 4741,
+      "gzip": 1013
+    },
+    {
+      "file": "AI.json",
+      "bytes": 3602,
+      "gzip": 896
+    },
+    {
+      "file": "AL.json",
+      "bytes": 21006,
+      "gzip": 4813
+    },
+    {
+      "file": "AM.json",
+      "bytes": 16623,
+      "gzip": 3760
+    },
+    {
+      "file": "AO.json",
+      "bytes": 81485,
+      "gzip": 21200
+    },
+    {
+      "file": "AQ.json",
+      "bytes": 643701,
+      "gzip": 210561
+    },
+    {
+      "file": "AR.json",
+      "bytes": 160565,
+      "gzip": 50327
+    },
+    {
+      "file": "AS.json",
+      "bytes": 2514,
+      "gzip": 581
+    },
+    {
+      "file": "AT.json",
+      "bytes": 29195,
+      "gzip": 6406
+    },
+    {
+      "file": "AU.json",
+      "bytes": 340309,
+      "gzip": 105987
+    },
+    {
+      "file": "AW.json",
+      "bytes": 865,
+      "gzip": 246
+    },
+    {
+      "file": "AX.json",
+      "bytes": 10161,
+      "gzip": 2154
+    },
+    {
+      "file": "AZ.json",
+      "bytes": 69923,
+      "gzip": 17753
+    },
+    {
+      "file": "BA.json",
+      "bytes": 17169,
+      "gzip": 4612
+    },
+    {
+      "file": "BB.json",
+      "bytes": 2928,
+      "gzip": 794
+    },
+    {
+      "file": "BD.json",
+      "bytes": 55950,
+      "gzip": 13239
+    },
+    {
+      "file": "BE.json",
+      "bytes": 28174,
+      "gzip": 6700
+    },
+    {
+      "file": "BF.json",
+      "bytes": 75818,
+      "gzip": 19408
+    },
+    {
+      "file": "BG.json",
+      "bytes": 52488,
+      "gzip": 13174
+    },
+    {
+      "file": "BH.json",
+      "bytes": 4371,
+      "gzip": 926
+    },
+    {
+      "file": "BI.json",
+      "bytes": 16491,
+      "gzip": 3925
+    },
+    {
+      "file": "BJ.json",
+      "bytes": 17080,
+      "gzip": 4085
+    },
+    {
+      "file": "BL.json",
+      "bytes": 311,
+      "gzip": 150
+    },
+    {
+      "file": "BM.json",
+      "bytes": 3779,
+      "gzip": 935
+    },
+    {
+      "file": "BN.json",
+      "bytes": 4321,
+      "gzip": 975
+    },
+    {
+      "file": "BO.json",
+      "bytes": 55933,
+      "gzip": 13450
+    },
+    {
+      "file": "BR.json",
+      "bytes": 395349,
+      "gzip": 125284
+    },
+    {
+      "file": "BS.json",
+      "bytes": 43423,
+      "gzip": 8171
+    },
+    {
+      "file": "BT.json",
+      "bytes": 22750,
+      "gzip": 5453
+    },
+    {
+      "file": "BW.json",
+      "bytes": 26592,
+      "gzip": 5438
+    },
+    {
+      "file": "BY.json",
+      "bytes": 46369,
+      "gzip": 10373
+    },
+    {
+      "file": "BZ.json",
+      "bytes": 13715,
+      "gzip": 2765
+    },
+    {
+      "file": "CA.json",
+      "bytes": 1768022,
+      "gzip": 570515
+    },
+    {
+      "file": "CD.json",
+      "bytes": 92674,
+      "gzip": 28099
+    },
+    {
+      "file": "CF.json",
+      "bytes": 63614,
+      "gzip": 17861
+    },
+    {
+      "file": "CG.json",
+      "bytes": 42873,
+      "gzip": 10231
+    },
+    {
+      "file": "CH.json",
+      "bytes": 35844,
+      "gzip": 8844
+    },
+    {
+      "file": "CI.json",
+      "bytes": 62004,
+      "gzip": 16127
+    },
+    {
+      "file": "CK.json",
+      "bytes": 5346,
+      "gzip": 1042
+    },
+    {
+      "file": "CL.json",
+      "bytes": 455140,
+      "gzip": 136185
+    },
+    {
+      "file": "CM.json",
+      "bytes": 45360,
+      "gzip": 11055
+    },
+    {
+      "file": "CN.json",
+      "bytes": 564049,
+      "gzip": 184702
+    },
+    {
+      "file": "CO.json",
+      "bytes": 152124,
+      "gzip": 46212
+    },
+    {
+      "file": "CR.json",
+      "bytes": 23821,
+      "gzip": 5083
+    },
+    {
+      "file": "CU.json",
+      "bytes": 78787,
+      "gzip": 19046
+    },
+    {
+      "file": "CV.json",
+      "bytes": 13274,
+      "gzip": 2869
+    },
+    {
+      "file": "CW.json",
+      "bytes": 1051,
+      "gzip": 286
+    },
+    {
+      "file": "CY.json",
+      "bytes": 7217,
+      "gzip": 1907
+    },
+    {
+      "file": "CZ.json",
+      "bytes": 33345,
+      "gzip": 7869
+    },
+    {
+      "file": "DE.json",
+      "bytes": 100219,
+      "gzip": 31327
+    },
+    {
+      "file": "DJ.json",
+      "bytes": 6584,
+      "gzip": 1538
+    },
+    {
+      "file": "DK.json",
+      "bytes": 49277,
+      "gzip": 10234
+    },
+    {
+      "file": "DM.json",
+      "bytes": 3072,
+      "gzip": 804
+    },
+    {
+      "file": "DO.json",
+      "bytes": 34279,
+      "gzip": 7710
+    },
+    {
+      "file": "DZ.json",
+      "bytes": 75379,
+      "gzip": 20527
+    },
+    {
+      "file": "EC.json",
+      "bytes": 62967,
+      "gzip": 14870
+    },
+    {
+      "file": "EE.json",
+      "bytes": 37270,
+      "gzip": 7964
+    },
+    {
+      "file": "EG.json",
+      "bytes": 57417,
+      "gzip": 14302
+    },
+    {
+      "file": "EH.json",
+      "bytes": 5216,
+      "gzip": 988
+    },
+    {
+      "file": "ER.json",
+      "bytes": 24162,
+      "gzip": 4896
+    },
+    {
+      "file": "ES.json",
+      "bytes": 156799,
+      "gzip": 48780
+    },
+    {
+      "file": "ET.json",
+      "bytes": 62210,
+      "gzip": 18244
+    },
+    {
+      "file": "FI.json",
+      "bytes": 38159,
+      "gzip": 12802
+    },
+    {
+      "file": "FJ.json",
+      "bytes": 36896,
+      "gzip": 6114
+    },
+    {
+      "file": "FK.json",
+      "bytes": 34333,
+      "gzip": 5208
+    },
+    {
+      "file": "FM.json",
+      "bytes": 7559,
+      "gzip": 1461
+    },
+    {
+      "file": "FO.json",
+      "bytes": 11289,
+      "gzip": 1894
+    },
+    {
+      "file": "FR.json",
+      "bytes": 238127,
+      "gzip": 75879
+    },
+    {
+      "file": "GA.json",
+      "bytes": 37556,
+      "gzip": 8168
+    },
+    {
+      "file": "GB.json",
+      "bytes": 74019,
+      "gzip": 24193
+    },
+    {
+      "file": "GD.json",
+      "bytes": 2717,
+      "gzip": 703
+    },
+    {
+      "file": "GE.json",
+      "bytes": 24145,
+      "gzip": 5601
+    },
+    {
+      "file": "GG.json",
+      "bytes": 1188,
+      "gzip": 329
+    },
+    {
+      "file": "GH.json",
+      "bytes": 31616,
+      "gzip": 7969
+    },
+    {
+      "file": "GI.json",
+      "bytes": 371,
+      "gzip": 154
+    },
+    {
+      "file": "GL.json",
+      "bytes": 531038,
+      "gzip": 173462
+    },
+    {
+      "file": "GM.json",
+      "bytes": 9501,
+      "gzip": 1868
+    },
+    {
+      "file": "GN.json",
+      "bytes": 60243,
+      "gzip": 15963
+    },
+    {
+      "file": "GQ.json",
+      "bytes": 7722,
+      "gzip": 2043
+    },
+    {
+      "file": "GR.json",
+      "bytes": 128769,
+      "gzip": 40658
+    },
+    {
+      "file": "GS.json",
+      "bytes": 14206,
+      "gzip": 2391
+    },
+    {
+      "file": "GT.json",
+      "bytes": 28749,
+      "gzip": 6669
+    },
+    {
+      "file": "GU.json",
+      "bytes": 1087,
+      "gzip": 280
+    },
+    {
+      "file": "GW.json",
+      "bytes": 31511,
+      "gzip": 5805
+    },
+    {
+      "file": "GY.json",
+      "bytes": 32281,
+      "gzip": 7376
+    },
+    {
+      "file": "HK.json",
+      "bytes": 10213,
+      "gzip": 2050
+    },
+    {
+      "file": "HM.json",
+      "bytes": 1437,
+      "gzip": 358
+    },
+    {
+      "file": "HN.json",
+      "bytes": 43158,
+      "gzip": 9571
+    },
+    {
+      "file": "HR.json",
+      "bytes": 59122,
+      "gzip": 14589
+    },
+    {
+      "file": "HT.json",
+      "bytes": 21439,
+      "gzip": 4273
+    },
+    {
+      "file": "HU.json",
+      "bytes": 54456,
+      "gzip": 13470
+    },
+    {
+      "file": "ID.json",
+      "bytes": 475480,
+      "gzip": 157256
+    },
+    {
+      "file": "IE.json",
+      "bytes": 72732,
+      "gzip": 19742
+    },
+    {
+      "file": "IL.json",
+      "bytes": 9697,
+      "gzip": 2121
+    },
+    {
+      "file": "IM.json",
+      "bytes": 1600,
+      "gzip": 393
+    },
+    {
+      "file": "IN.json",
+      "bytes": 325092,
+      "gzip": 109639
+    },
+    {
+      "file": "IO.json",
+      "bytes": 3157,
+      "gzip": 599
+    },
+    {
+      "file": "IQ.json",
+      "bytes": 41962,
+      "gzip": 10552
+    },
+    {
+      "file": "IR.json",
+      "bytes": 110175,
+      "gzip": 33008
+    },
+    {
+      "file": "IS.json",
+      "bytes": 78247,
+      "gzip": 24060
+    },
+    {
+      "file": "IT.json",
+      "bytes": 186620,
+      "gzip": 57813
+    },
+    {
+      "file": "JE.json",
+      "bytes": 645,
+      "gzip": 208
+    },
+    {
+      "file": "JM.json",
+      "bytes": 10103,
+      "gzip": 2226
+    },
+    {
+      "file": "JO.json",
+      "bytes": 11484,
+      "gzip": 2840
+    },
+    {
+      "file": "JP.json",
+      "bytes": 214833,
+      "gzip": 66708
+    },
+    {
+      "file": "KE.json",
+      "bytes": 33988,
+      "gzip": 8144
+    },
+    {
+      "file": "KG.json",
+      "bytes": 42469,
+      "gzip": 10049
+    },
+    {
+      "file": "KH.json",
+      "bytes": 46385,
+      "gzip": 10457
+    },
+    {
+      "file": "KI.json",
+      "bytes": 14818,
+      "gzip": 2547
+    },
+    {
+      "file": "KM.json",
+      "bytes": 2805,
+      "gzip": 610
+    },
+    {
+      "file": "KN.json",
+      "bytes": 3617,
+      "gzip": 965
+    },
+    {
+      "file": "KP.json",
+      "bytes": 54700,
+      "gzip": 13185
+    },
+    {
+      "file": "KR.json",
+      "bytes": 82151,
+      "gzip": 21859
+    },
+    {
+      "file": "KW.json",
+      "bytes": 6517,
+      "gzip": 1431
+    },
+    {
+      "file": "KY.json",
+      "bytes": 2011,
+      "gzip": 426
+    },
+    {
+      "file": "KZ.json",
+      "bytes": 134272,
+      "gzip": 43571
+    },
+    {
+      "file": "LA.json",
+      "bytes": 60330,
+      "gzip": 15328
+    },
+    {
+      "file": "LB.json",
+      "bytes": 8285,
+      "gzip": 1904
+    },
+    {
+      "file": "LC.json",
+      "bytes": 2969,
+      "gzip": 850
+    },
+    {
+      "file": "LI.json",
+      "bytes": 3534,
+      "gzip": 935
+    },
+    {
+      "file": "LK.json",
+      "bytes": 38005,
+      "gzip": 9378
+    },
+    {
+      "file": "LR.json",
+      "bytes": 23862,
+      "gzip": 5835
+    },
+    {
+      "file": "LS.json",
+      "bytes": 17447,
+      "gzip": 4001
+    },
+    {
+      "file": "LT.json",
+      "bytes": 29319,
+      "gzip": 6888
+    },
+    {
+      "file": "LU.json",
+      "bytes": 4020,
+      "gzip": 989
+    },
+    {
+      "file": "LV.json",
+      "bytes": 90973,
+      "gzip": 23197
+    },
+    {
+      "file": "LY.json",
+      "bytes": 33350,
+      "gzip": 8280
+    },
+    {
+      "file": "MA.json",
+      "bytes": 45878,
+      "gzip": 11132
+    },
+    {
+      "file": "MC.json",
+      "bytes": 519,
+      "gzip": 205
+    },
+    {
+      "file": "MD.json",
+      "bytes": 43702,
+      "gzip": 10453
+    },
+    {
+      "file": "ME.json",
+      "bytes": 17572,
+      "gzip": 4173
+    },
+    {
+      "file": "MF.json",
+      "bytes": 577,
+      "gzip": 206
+    },
+    {
+      "file": "MG.json",
+      "bytes": 70219,
+      "gzip": 15846
+    },
+    {
+      "file": "MH.json",
+      "bytes": 6050,
+      "gzip": 1136
+    },
+    {
+      "file": "MK.json",
+      "bytes": 40128,
+      "gzip": 10445
+    },
+    {
+      "file": "ML.json",
+      "bytes": 42691,
+      "gzip": 9772
+    },
+    {
+      "file": "MM.json",
+      "bytes": 130711,
+      "gzip": 41039
+    },
+    {
+      "file": "MN.json",
+      "bytes": 91544,
+      "gzip": 25652
+    },
+    {
+      "file": "MO.json",
+      "bytes": 642,
+      "gzip": 200
+    },
+    {
+      "file": "MP.json",
+      "bytes": 5156,
+      "gzip": 960
+    },
+    {
+      "file": "MR.json",
+      "bytes": 27187,
+      "gzip": 5953
+    },
+    {
+      "file": "MS.json",
+      "bytes": 1103,
+      "gzip": 368
+    },
+    {
+      "file": "MT.json",
+      "bytes": 12634,
+      "gzip": 3034
+    },
+    {
+      "file": "MU.json",
+      "bytes": 6294,
+      "gzip": 1589
+    },
+    {
+      "file": "MV.json",
+      "bytes": 47727,
+      "gzip": 7598
+    },
+    {
+      "file": "MW.json",
+      "bytes": 34732,
+      "gzip": 7882
+    },
+    {
+      "file": "MX.json",
+      "bytes": 234476,
+      "gzip": 71691
+    },
+    {
+      "file": "MY.json",
+      "bytes": 66427,
+      "gzip": 15777
+    },
+    {
+      "file": "MZ.json",
+      "bytes": 75566,
+      "gzip": 21466
+    },
+    {
+      "file": "NA.json",
+      "bytes": 46941,
+      "gzip": 10836
+    },
+    {
+      "file": "NC.json",
+      "bytes": 24645,
+      "gzip": 4107
+    },
+    {
+      "file": "NE.json",
+      "bytes": 23184,
+      "gzip": 5311
+    },
+    {
+      "file": "NF.json",
+      "bytes": 957,
+      "gzip": 252
+    },
+    {
+      "file": "NG.json",
+      "bytes": 97813,
+      "gzip": 30269
+    },
+    {
+      "file": "NI.json",
+      "bytes": 35887,
+      "gzip": 7855
+    },
+    {
+      "file": "NL.json",
+      "bytes": 29515,
+      "gzip": 6732
+    },
+    {
+      "file": "NO.json",
+      "bytes": 398189,
+      "gzip": 133493
+    },
+    {
+      "file": "NP.json",
+      "bytes": 10730,
+      "gzip": 3683
+    },
+    {
+      "file": "NR.json",
+      "bytes": 2553,
+      "gzip": 650
+    },
+    {
+      "file": "NU.json",
+      "bytes": 904,
+      "gzip": 247
+    },
+    {
+      "file": "NZ.json",
+      "bytes": 136756,
+      "gzip": 40789
+    },
+    {
+      "file": "OM.json",
+      "bytes": 24829,
+      "gzip": 5044
+    },
+    {
+      "file": "PA.json",
+      "bytes": 51174,
+      "gzip": 11796
+    },
+    {
+      "file": "PE.json",
+      "bytes": 117632,
+      "gzip": 32861
+    },
+    {
+      "file": "PF.json",
+      "bytes": 33541,
+      "gzip": 5388
+    },
+    {
+      "file": "PG.json",
+      "bytes": 116203,
+      "gzip": 36239
+    },
+    {
+      "file": "PH.json",
+      "bytes": 220372,
+      "gzip": 69501
+    },
+    {
+      "file": "PK.json",
+      "bytes": 70115,
+      "gzip": 21470
+    },
+    {
+      "file": "PL.json",
+      "bytes": 58811,
+      "gzip": 14163
+    },
+    {
+      "file": "PM.json",
+      "bytes": 2369,
+      "gzip": 527
+    },
+    {
+      "file": "PN.json",
+      "bytes": 1451,
+      "gzip": 331
+    },
+    {
+      "file": "PR.json",
+      "bytes": 7151,
+      "gzip": 1212
+    },
+    {
+      "file": "PS.json",
+      "bytes": 3925,
+      "gzip": 857
+    },
+    {
+      "file": "PT.json",
+      "bytes": 49976,
+      "gzip": 12966
+    },
+    {
+      "file": "PW.json",
+      "bytes": 6706,
+      "gzip": 1496
+    },
+    {
+      "file": "PY.json",
+      "bytes": 46057,
+      "gzip": 10114
+    },
+    {
+      "file": "QA.json",
+      "bytes": 7917,
+      "gzip": 1752
+    },
+    {
+      "file": "RO.json",
+      "bytes": 75827,
+      "gzip": 19974
+    },
+    {
+      "file": "RS.json",
+      "bytes": 42020,
+      "gzip": 10244
+    },
+    {
+      "file": "RU.json",
+      "bytes": 1530528,
+      "gzip": 518421
+    },
+    {
+      "file": "RW.json",
+      "bytes": 9036,
+      "gzip": 2130
+    },
+    {
+      "file": "SA.json",
+      "bytes": 76866,
+      "gzip": 21086
+    },
+    {
+      "file": "SB.json",
+      "bytes": 47698,
+      "gzip": 8299
+    },
+    {
+      "file": "SC.json",
+      "bytes": 12498,
+      "gzip": 2572
+    },
+    {
+      "file": "SD.json",
+      "bytes": 44564,
+      "gzip": 10487
+    },
+    {
+      "file": "SE.json",
+      "bytes": 137242,
+      "gzip": 43042
+    },
+    {
+      "file": "SG.json",
+      "bytes": 2273,
+      "gzip": 672
+    },
+    {
+      "file": "SH.json",
+      "bytes": 2582,
+      "gzip": 583
+    },
+    {
+      "file": "SI.json",
+      "bytes": 3962,
+      "gzip": 1366
+    },
+    {
+      "file": "SK.json",
+      "bytes": 20634,
+      "gzip": 4831
+    },
+    {
+      "file": "SL.json",
+      "bytes": 16546,
+      "gzip": 3467
+    },
+    {
+      "file": "SM.json",
+      "bytes": 1962,
+      "gzip": 631
+    },
+    {
+      "file": "SN.json",
+      "bytes": 42230,
+      "gzip": 8933
+    },
+    {
+      "file": "SO.json",
+      "bytes": 14392,
+      "gzip": 3368
+    },
+    {
+      "file": "SR.json",
+      "bytes": 20473,
+      "gzip": 4476
+    },
+    {
+      "file": "SS.json",
+      "bytes": 34035,
+      "gzip": 8124
+    },
+    {
+      "file": "ST.json",
+      "bytes": 1809,
+      "gzip": 470
+    },
+    {
+      "file": "SV.json",
+      "bytes": 16481,
+      "gzip": 3747
+    },
+    {
+      "file": "SX.json",
+      "bytes": 463,
+      "gzip": 184
+    },
+    {
+      "file": "SY.json",
+      "bytes": 22835,
+      "gzip": 5693
+    },
+    {
+      "file": "SZ.json",
+      "bytes": 4892,
+      "gzip": 1233
+    },
+    {
+      "file": "TC.json",
+      "bytes": 6521,
+      "gzip": 1208
+    },
+    {
+      "file": "TD.json",
+      "bytes": 44663,
+      "gzip": 11196
+    },
+    {
+      "file": "TF.json",
+      "bytes": 17714,
+      "gzip": 3080
+    },
+    {
+      "file": "TG.json",
+      "bytes": 11988,
+      "gzip": 2769
+    },
+    {
+      "file": "TH.json",
+      "bytes": 147838,
+      "gzip": 45183
+    },
+    {
+      "file": "TJ.json",
+      "bytes": 32806,
+      "gzip": 6903
+    },
+    {
+      "file": "TL.json",
+      "bytes": 13368,
+      "gzip": 3037
+    },
+    {
+      "file": "TM.json",
+      "bytes": 44004,
+      "gzip": 8881
+    },
+    {
+      "file": "TN.json",
+      "bytes": 33242,
+      "gzip": 7998
+    },
+    {
+      "file": "TO.json",
+      "bytes": 6735,
+      "gzip": 1176
+    },
+    {
+      "file": "TR.json",
+      "bytes": 165659,
+      "gzip": 48945
+    },
+    {
+      "file": "TT.json",
+      "bytes": 8463,
+      "gzip": 2137
+    },
+    {
+      "file": "TV.json",
+      "bytes": 2529,
+      "gzip": 502
+    },
+    {
+      "file": "TW.json",
+      "bytes": 6040,
+      "gzip": 1769
+    },
+    {
+      "file": "TZ.json",
+      "bytes": 88218,
+      "gzip": 25276
+    },
+    {
+      "file": "UA.json",
+      "bytes": 122462,
+      "gzip": 37174
+    },
+    {
+      "file": "UG.json",
+      "bytes": 79721,
+      "gzip": 21180
+    },
+    {
+      "file": "UM.json",
+      "bytes": 3728,
+      "gzip": 786
+    },
+    {
+      "file": "US.json",
+      "bytes": 946829,
+      "gzip": 294995
+    },
+    {
+      "file": "UY.json",
+      "bytes": 37071,
+      "gzip": 8404
+    },
+    {
+      "file": "UZ.json",
+      "bytes": 49771,
+      "gzip": 12311
+    },
+    {
+      "file": "VA.json",
+      "bytes": 358,
+      "gzip": 146
+    },
+    {
+      "file": "VC.json",
+      "bytes": 3340,
+      "gzip": 781
+    },
+    {
+      "file": "VE.json",
+      "bytes": 110544,
+      "gzip": 34163
+    },
+    {
+      "file": "VG.json",
+      "bytes": 2445,
+      "gzip": 490
+    },
+    {
+      "file": "VI.json",
+      "bytes": 2014,
+      "gzip": 491
+    },
+    {
+      "file": "VN.json",
+      "bytes": 41842,
+      "gzip": 13503
+    },
+    {
+      "file": "VU.json",
+      "bytes": 23755,
+      "gzip": 3824
+    },
+    {
+      "file": "WF.json",
+      "bytes": 1672,
+      "gzip": 460
+    },
+    {
+      "file": "WS.json",
+      "bytes": 5544,
+      "gzip": 1288
+    },
+    {
+      "file": "XK.json",
+      "bytes": 19796,
+      "gzip": 4652
+    },
+    {
+      "file": "YE.json",
+      "bytes": 46578,
+      "gzip": 10771
+    },
+    {
+      "file": "ZA.json",
+      "bytes": 89095,
+      "gzip": 24945
+    },
+    {
+      "file": "ZM.json",
+      "bytes": 57696,
+      "gzip": 13850
+    },
+    {
+      "file": "ZW.json",
+      "bytes": 38178,
+      "gzip": 8688
+    },
+    {
+      "file": "index.json",
+      "bytes": 10167,
+      "gzip": 2535
+    }
+  ]
+}

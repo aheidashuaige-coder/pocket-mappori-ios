@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script>(function () {
+  var events = [];
+  var finished = false;
+  var storageKey = "pocket-mappori:startup-diagnostics";
+  var mode = document.documentElement.dataset.startupMode || "normal";
+  function assetPath(value) {
+    try {
+      var url = new URL(value, location.href);
+      if (url.origin !== location.origin) return undefined;
+      return /^\/(assets\/[\w.-]+\.(js|css)|index\.html|compat\.html)$/.test(
+        url.pathname,
+      )
+        ? url.pathname
+        : undefined;
+    } catch (_) {
+      return undefined;
+    }
+  }
+  function trace() {
+    return {
+      mode: mode,
+      stages: window.__pocketStartupTrace || [],
+      issues: window.__pocketStartupIssues || [],
+      events: events.slice(),
+    };
+  }
+  function record(type, error, asset) {
+    if (
+      finished ||
+      (!document.getElementById("startup-shell") &&
+        document.readyState === "complete")
+    )
+      return;
+    var frames = [];
+    if (error && typeof error.stack === "string") {
+      frames = (
+        error.stack.match(/\/assets\/[\w.-]+\.js:\d+:\d+/g) || []
+      ).slice(0, 10);
+    }
+    events.push({
+      type: type,
+      atMs: Math.round(performance.now()),
+      errorType:
+        error &&
+        /^(Error|TypeError|ReferenceError|SyntaxError|RangeError|SecurityError|NotSupportedError|AbortError)$/.test(
+          error.name,
+        )
+          ? error.name
+          : undefined,
+      asset: assetPath(asset || ""),
+      frames: frames,
+    });
+    if (events.length > 50) events.shift();
+  }
+  window.__pocketStartupDiagnostic = record;
+  window.__pocketRevealStartupLog = function () {
+    var button = document.getElementById("startup-log");
+    if (button && !finished) button.hidden = false;
+  };
+  window.addEventListener(
+    "error",
+    function (event) {
+      if (event.target === window)
+        record("javascript-error", event.error, event.filename);
+      else {
+        var element = event.target;
+        if (
+          element &&
+          (element.tagName === "SCRIPT" || element.tagName === "LINK")
+        )
+          record("resource-error", null, element.src || element.href);
+      }
+    },
+    true,
+  );
+  window.addEventListener("unhandledrejection", function (event) {
+    record("unhandled-rejection", event.reason);
+  });
+  window.addEventListener("vite:preloadError", function (event) {
+    record("module-preload-error", event.payload);
+  });
+  window.addEventListener("pagehide", function () {
+    if (finished) return;
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(trace()));
+    } catch (_) {}
+  });
+  document.addEventListener("click", function (event) {
+    if (!event.target || event.target.id !== "startup-log") return;
+    var button = event.target;
+    if (button.hidden || button.disabled) return;
+    button.disabled = true;
+    var status = document.getElementById("startup-log-status");
+    function exportLog(device) {
+      var previous;
+      try {
+        previous = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+      } catch (_) {}
+      var resources = performance
+        .getEntriesByType("resource")
+        .map(function (entry) {
+          var path = assetPath(entry.name);
+          return path
+            ? {
+                path: path,
+                ms: Math.round(entry.duration),
+                bytes: entry.encodedBodySize,
+                status: entry.responseStatus,
+              }
+            : null;
+        })
+        .filter(Boolean)
+        .slice(-60);
+      var json = JSON.stringify(
+        {
+          format: 1,
+          device: device,
+          userAgent: navigator.userAgent,
+          viewport: {
+            width: innerWidth,
+            height: innerHeight,
+            scale: devicePixelRatio,
+          },
+          attempt: trace(),
+          previousAttempt: previous,
+          resources: resources,
+        },
+        null,
+        2,
+      );
+      var name =
+        "Pocket-Mappori-startup-" +
+        new Date().toISOString().replace(/[:.]/g, "-") +
+        ".json";
+      if (nativeSend) {
+        var bytes = new TextEncoder().encode(json);
+        var encoded = "";
+        for (var i = 0; i < bytes.length; i++)
+          encoded += String.fromCharCode(bytes[i]);
+        return nativeSend("beginExport", { bytes: bytes.length }).then(
+          function () {
+            return nativeSend("appendExport", { data: btoa(encoded) })
+              .then(function () {
+                return nativeSend("finishExport", { name: name });
+              })
+              .finally(function () {
+                return nativeSend("clearTransfer", {}).catch(function () {});
+              });
+          },
+        );
+      }
+      var url = URL.createObjectURL(
+        new Blob([json], { type: "application/json" }),
+      );
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = name;
+      link.click();
+      setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 1000);
+      return Promise.resolve();
+    }
+    var native = window.Capacitor;
+    var nativeSend =
+      native &&
+      native.getPlatform &&
+      native.getPlatform() === "android" &&
+      native.nativePromise
+        ? function (method, options) {
+            return native.nativePromise("SaveFiles", method, options);
+          }
+        : null;
+    (nativeSend
+      ? nativeSend("startupDevice", {}).catch(function () {})
+      : Promise.resolve()
+    )
+      .then(exportLog)
+      .then(
+        function (result) {
+          status.hidden = !!(result && result.cancelled);
+          status.textContent = status.hidden ? "" : "启动日志已导出。";
+        },
+        function () {
+          status.hidden = false;
+          status.textContent = "启动日志导出失败，请重试。";
+        },
+      )
+      .finally(function () {
+        button.disabled = false;
+      });
+  });
+  window.__pocketStartupDiagnosticReady = function () {
+    finished = true;
+    try {
+      sessionStorage.removeItem(storageKey);
+    } catch (_) {}
+  };
+  record("shell-script");
+})();
+</script>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Pocket Mappori"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="manifest" href="./manifest.webmanifest"/>
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png"/>
+<meta name="theme-color" content="#ecf7ee"/><meta name="description" content="Pocket Mappori 口袋漫游，带上好奇心，发现身边的小小奇遇。"/>
+<title>Pocket Mappori · 口袋漫游</title><link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+<style>
+.startup1813{--boot-bg:#f8faf4;--boot-ink:#294b3c;--boot-line:#bdcdbf;--boot-accent:#5c8a64;position:fixed;inset:0;z-index:999;display:grid;place-content:center;gap:16px;padding:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));box-sizing:border-box;background:var(--boot-bg);color:var(--boot-ink);font:14px/1.6 system-ui,sans-serif;text-align:center}.startup1813 h1{font-size:24px;margin:0}.startup1813 p{margin:0;max-width:320px}.startup1813 progress{width:min(280px,75vw);height:6px;accent-color:var(--boot-accent);justify-self:center}.startup1813 small{font-size:12px}.startup1813 button{font:inherit;min-height:44px;border:1px solid var(--boot-line);border-radius:12px;color:inherit;background:var(--boot-bg);padding:8px 24px;justify-self:center}.startup1813 [hidden]{display:none!important}.startup1813 button:focus-visible{outline:2px solid var(--boot-accent);outline-offset:2px}
+@media(prefers-color-scheme:dark){html:not([data-startup-theme="day"]) .startup1813{--boot-bg:#1e3039;--boot-ink:#e0eae2;--boot-line:#617c76}}
+html[data-startup-theme="night"] .startup1813{--boot-bg:#1e3039;--boot-ink:#e0eae2;--boot-line:#617c76}
+@media(prefers-reduced-motion:reduce){.startup1813 progress{animation:none}}
+</style>
+<script>try{const p=localStorage.getItem('pocket-wander:appearance:v1');if(p==='day'||p==='night')document.documentElement.dataset.startupTheme=p;}catch{}</script>
+  <script type="module" crossorigin src="./assets/index-C7H1vVXq.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/trace-Cz_0O3Cz.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/application-BAdagfOj.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/saveDocument-1KD8mP7n.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/trace-Cz_0O3Cz.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/giftDevice-B_3HqteC.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/index-BHc6ulPh.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/platform-BDeA0pL1.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/navigationBridge-BBgDOON_.js">
+  <link rel="modulepreload" crossorigin="" href="./assets/files-5weKg9MD.js">
+</head>
+<body>
+<section id="startup-shell" class="startup1813" role="status" aria-live="polite">
+<h1>Pocket Mappori</h1><p id="startup-phase">正在启动…</p>
+<progress id="startup-progress" aria-label="当前启动阶段进行中"></progress><small id="startup-count"></small><button id="startup-log" type="button" hidden>导出启动日志</button><small id="startup-log-status" role="status" hidden></small>
+<button id="startup-compat" type="button" hidden>兼容启动</button>
+<button id="startup-retry" type="button" hidden>重试</button><button id="startup-export" type="button" hidden>导出原始存档</button>
+<noscript>请启用 JavaScript 后重新打开游戏。</noscript>
+</section>
+<div id="root"></div>
+<script>
+window.__pocketRevealCompatibility=()=>{document.getElementById('startup-compat').hidden=false;};
+document.getElementById('startup-compat').addEventListener('click',()=>location.replace('./compat.html'));
+window.__pocketStartupWatchdog=window.setTimeout(()=>{if(!document.getElementById('startup-shell'))return;window.__pocketStartupDiagnostic?.('watchdog');window.__pocketRevealStartupLog?.();document.getElementById('startup-phase').textContent='加载时间较长，可重试或继续等待。';document.getElementById('startup-retry').hidden=false;window.__pocketRevealCompatibility();},18000);
+document.getElementById('startup-retry').addEventListener('click',()=>location.reload());
+document.getElementById('startup-export').addEventListener('click',()=>{try{const raw=localStorage.getItem('pocket-wander:save:v1');if(!raw)throw Error();const url=URL.createObjectURL(new Blob([raw],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='Pocket-Mappori-原始存档.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);}catch{document.getElementById('startup-phase').textContent='无法读取本地进度，请检查浏览器存储权限。';}});
+window.addEventListener('error',(event)=>{if(!(event.target instanceof HTMLScriptElement)||event.target.type!=='module')return;clearTimeout(window.__pocketStartupWatchdog);window.__pocketRevealStartupLog?.();document.getElementById('startup-phase').textContent='游戏入口资源未能加载，请重试。';document.getElementById('startup-progress').hidden=true;document.getElementById('startup-retry').hidden=false;window.__pocketRevealCompatibility();},true);
+</script>
+</body></html>

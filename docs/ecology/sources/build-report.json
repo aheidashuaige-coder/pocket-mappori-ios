@@ -1,0 +1,18 @@
+{
+  "sourceSha256": "dabe5ac8e23a952f27266d68334276369022a2fb21c9498a93ff8c57b7d4badc",
+  "fetchedAt": "2026-10-21T13:18:37+00:00",
+  "features": 371,
+  "vertices": 1207,
+  "bytes": 76443,
+  "skipped": [
+    "relation/20056665: incomplete relation",
+    "relation/21188792: incomplete relation"
+  ],
+  "coverageBounds": [
+    -73.976,
+    40.768,
+    -73.969,
+    40.775
+  ],
+  "coverageKm2Approx": 0.46
+}

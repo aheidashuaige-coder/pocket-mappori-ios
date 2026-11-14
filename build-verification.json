@@ -1,0 +1,142 @@
+{
+  "apkSha256": "124d6954af8ab6cd5ec8399625b4a73f2ddc44eb91b07df206b137ee0ef862fc",
+  "apkBytes": 43363172,
+  "pwaSha256": "cbe3f7c3a20ec4fb748f03598fc4641bc40e0f3913bc442adfe83f2c70a01430",
+  "pwaBytes": 42985626,
+  "saveSha256": "8a575e871257946dbac936662019d706d549c33713467a47731b33a8f911c049",
+  "saveBytes": 5450392,
+  "assetChecks": [
+    {
+      "entry": "assets/public/index.html",
+      "match": true,
+      "apkBytes": 11746,
+      "sourceBytes": 11746
+    },
+    {
+      "entry": "assets/public/manifest.webmanifest",
+      "match": true,
+      "apkBytes": 746,
+      "sourceBytes": 746
+    },
+    {
+      "entry": "assets/public/assets/application-BAdagfOj.js",
+      "match": true,
+      "apkBytes": 3944479,
+      "sourceBytes": 3944479
+    },
+    {
+      "entry": "assets/public/assets/saveDocument-1KD8mP7n.js",
+      "match": true,
+      "apkBytes": 19343087,
+      "sourceBytes": 19343087
+    },
+    {
+      "entry": "assets/public/assets/HomePanel-BQoA-_c4.js",
+      "match": true,
+      "apkBytes": 95074,
+      "sourceBytes": 95074
+    },
+    {
+      "entry": "assets/public/assets/BattleArena-BSEwidgb.js",
+      "match": true,
+      "apkBytes": 41001,
+      "sourceBytes": 41001
+    },
+    {
+      "entry": "assets/public/assets/battleDoublesActions-CXNjGrdb.js",
+      "match": true,
+      "apkBytes": 10442,
+      "sourceBytes": 10442
+    },
+    {
+      "entry": "res/6W.xml",
+      "match": true,
+      "apkBytes": 1560,
+      "sourceBytes": 1560
+    }
+  ],
+  "markers": {
+    "boxDefaultDexAsc": true,
+    "mysteryUnlimited": true,
+    "mysteryLabel": true,
+    "homeRate": true,
+    "homeStartCost": true,
+    "autoAlwaysVisible": true,
+    "autoClass": true,
+    "iosMeta": true,
+    "pwaManifest": true
+  },
+  "generatedAt": "2026-11-14T17:55:00+08:00",
+  "sourceApk": {
+    "name": "Pocket-Mappori-1.7.5.2.apk.1",
+    "sha256": "02AF10277326131F3A16CA8AB4BB00B28F62A027E068E24EA89265A41BEC111A",
+    "bytes": 42924503
+  },
+  "package": {
+    "appId": "com.pocketwander.beta",
+    "versionCode": 153,
+    "versionName": "1.7.5.2-android.153",
+    "minSdk": 24,
+    "targetSdk": 36
+  },
+  "signature": {
+    "verified": true,
+    "v2": true,
+    "v3": true,
+    "certificateSHA256": "8216e0df16db3b23d3a2e14e1f0051e20bc1379b1774156c3d5a24cd529002e5"
+  },
+  "zipAligned": true,
+  "runtimeChecks": {
+    "saveValidatorUsesAppFunction": "ed",
+    "saveValidatorResult": true,
+    "boxDexAscending": true,
+    "boxSortedCount": 756,
+    "firstNationalDexSequence": [
+      1,
+      1,
+      2,
+      3,
+      4,
+      4,
+      6,
+      8,
+      9,
+      12,
+      12,
+      18,
+      20,
+      22,
+      24,
+      25,
+      25,
+      25,
+      26,
+      26
+    ],
+    "mysteryLimit": "Infinity",
+    "mysteryEightSuccesses": 8,
+    "homeMealJuicePointsOriginal": 200,
+    "homeMealJuicePointsModified": 140,
+    "homeStartProductionOriginal": 1000,
+    "homeStartProductionModified": 700,
+    "homePlantOriginal": 200,
+    "homePlantModified": 140,
+    "browserStartup": true,
+    "browserStartupIssues": []
+  },
+  "ios": {
+    "pwaZipBytes": 42985626,
+    "pwaZipSHA256": "cbe3f7c3a20ec4fb748f03598fc4641bc40e0f3913bc442adfe83f2c70a01430",
+    "pwaEntries": 25635,
+    "ipaIncluded": false,
+    "ipaReason": "生成和签名 IPA 需要 macOS + Xcode 及 Apple 开发签名。"
+  },
+  "aaptSummary": [
+    "package: name='com.pocketwander.beta' versionCode='153' versionName='1.7.5.2-android.153' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "sdkVersion:'24'",
+    "targetSdkVersion:'36'",
+    "application-icon-640:'res/6W.xml'",
+    "launchable-activity: name='com.pocketwander.beta.MainActivity'  label='Pocket Mappori' icon=''"
+  ],
+  "apkFile": "Pocket-Mappori-1.7.5.2-android-ios-ui.apk"
+}

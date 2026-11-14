@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "provenance": "original-overworld-fallback",
+  "license": "MIT (project original artwork); no official sprite pixels",
+  "files": {
+    "bugcatcher": "bugcatcher.4b174a8522aa.svg",
+    "youngster": "youngster.c1b70dc178d7.svg",
+    "hiker": "hiker.85c9f9390095.svg",
+    "traveler": "traveler.66c03ca8755c.svg",
+    "rocket-m": "rocket-m.53995e0848c8.svg",
+    "rocket-f": "rocket-f.5c19abae83b4.svg",
+    "trade-lan": "trade-lan.a4fd0d463e07.svg",
+    "trade-he": "trade-he.37f146d3cc48.svg",
+    "trade-mu": "trade-mu.b15d2ac198f5.svg",
+    "trade-mo": "trade-mo.503e93950850.svg",
+    "trade-ye": "trade-ye.3f84aa493dd5.svg",
+    "trade-zhu": "trade-zhu.fde7e8f93d3e.svg",
+    "trade-cheng": "trade-cheng.124c9b27af6a.svg",
+    "trade-qing": "trade-qing.dd4fc27888fa.svg",
+    "trade-chen": "trade-chen.18bdfbd987bc.svg",
+    "trade-lin": "trade-lin.1297a0e79831.svg"
+  },
+  "trade": {
+    "lan": "trade-lan",
+    "he": "trade-he",
+    "mu": "trade-mu",
+    "mo": "trade-mo",
+    "ye": "trade-ye",
+    "zhu": "trade-zhu",
+    "cheng": "trade-cheng",
+    "qing": "trade-qing",
+    "chen": "trade-chen",
+    "lin": "trade-lin"
+  },
+  "author": "Pocket Wander project original artwork",
+  "format": "svg",
+  "transparent": true,
+  "frameWidth": 24,
+  "frameHeight": 32,
+  "columns": 3,
+  "rows": 4,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "frames": [
+    "standing",
+    "step-a",
+    "step-b"
+  ],
+  "anchor": [
+    12,
+    30
+  ],
+  "appearances": [
+    "bugcatcher",
+    "youngster",
+    "hiker",
+    "traveler",
+    "rocket-m",
+    "rocket-f"
+  ]
+}

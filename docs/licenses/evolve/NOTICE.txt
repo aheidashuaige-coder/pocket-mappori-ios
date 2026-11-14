@@ -1,0 +1,24 @@
+Evolve code adaptation — Pocket Mappori 1.7.5.1
+Source: https://github.com/pmotschmann/Evolve
+Commit: 3436358dcd03d9f9e071d51ea071e0a78c0322e4
+Upstream package version: 1.4.10
+Authors: Peter Motschmann and Evolve contributors
+License: Mozilla Public License 2.0 (MPL-2.0.txt)
+
+Covered file: src/home/vendor/evolveRules.ts
+Corresponding source distributed in this directory: evolveRules.ts
+Original source locations:
+- src/actions.js, checkTechRequirements: requirement and grant checks
+- src/resources.js, craft: limiting input calculation and requested quantity cap
+
+Modifications: explicit typed parameters replace global game state. Removed
+race/mutation modifiers, predictive action queue, key multiplier, bonus yield,
+DOM updates and inventory mutation. Kept original requirement comparison and
+minimum craftable volume algorithm. Host application owns validated inputs,
+recipes, costs, inventory mutation, receipts and persistence. No runtime imports.
+
+The corresponding editable source is included with every web/APK distribution,
+accessible from Settings > Sources > Evolve. No fee or network access is required
+for the bundled source. The modified covered file remains available under MPL-2.0.
+Other independent files in the larger work retain their respective licenses.
+No Evolve dependencies, images, sound, fonts or game/brand assets were copied.

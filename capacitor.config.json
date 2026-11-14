@@ -1,0 +1,17 @@
+{
+  "appId": "com.pocketwander.ios",
+  "appName": "Pocket Mappori",
+  "webDir": "www",
+  "server": {
+    "iosScheme": "https",
+    "hostname": "localhost"
+  },
+  "ios": {
+    "contentInset": "always",
+    "scrollEnabled": false,
+    "limitsNavigationsToAppBoundDomains": false
+  },
+  "plugins": {
+    "Geolocation": {}
+  }
+}

@@ -1,0 +1,3 @@
+Candidate coordinates and place names derived from OpenStreetMap contributors, ODbL 1.0.
+https://www.openstreetmap.org/copyright
+Source pack provenance is listed in manifest.json.

@@ -1,0 +1,589 @@
+{
+  "version": 1,
+  "geoBoundariesVersion": "9469f09",
+  "countryRules": {
+    "CN": "gbHumanitarian ADM2 OCHA2020: verified city type + original DBF Chinese name + parent; counties/leagues/prefectures omitted",
+    "TW": "gbOpen ADM1 explicit 9 city names + Chinese CLDR46.1; source Chiayi ISO is swapped, joined by verified unit name instead; country display only China",
+    "KR": "gbOpen ADM1 explicit metropolitan/special city ISO codes + CLDR46.1",
+    "other": "no verified city+Chinese-name mapping: existing reliable country/admin1 only"
+  },
+  "sources": {
+    "adm3-index.json": {
+      "bytes": 145924,
+      "sha256": "a3c8b0dbf544e368d6c4931f95a07fa44fa5539d0ffab730268dd622797816c5"
+    },
+    "CHN-humanitarian-ADM2.geojson": {
+      "bytes": 3164624,
+      "sha256": "5a2233cf89a1e713859802865c5acd9a88efc4634fe00a9880470d109c4426dd"
+    },
+    "adm1-index.json": {
+      "bytes": 350392,
+      "sha256": "3c742bab8428c987437e48dc5a9a6df826d5b47d3e06c613356733bd4ce3da98"
+    },
+    "TWN-ADM1.geojson": {
+      "bytes": 256828,
+      "sha256": "566a25e4522f33e492489ff321900be72b30be10de7b90a3586e292f7de1afe3"
+    },
+    "KOR-ADM1.geojson": {
+      "bytes": 188886,
+      "sha256": "7d774c8bb1ee65dde693431985423616fd059ffbe1c1bb497b5fed4f47bcac01"
+    },
+    "chn_admgz_2020.xlsx": {
+      "bytes": 38213,
+      "sha256": "4a05ade08da62d4b166c6ec864d2806b41432c5ae9904f17b40b9c24629e2c6c"
+    },
+    "chn_adm_ocha_2020_shp.zip": {
+      "bytes": 3629340,
+      "sha256": "f6a1f0fd969dbcc830e395c8211746730a80e8429585e045c6b0da92cd6e0ec9"
+    },
+    "adm2-index.json": {
+      "bytes": 323216,
+      "sha256": "95a35b1b0df7df1c3581b1bf90f1dfa80db32a9bd6ea4e63c46af5fd3485240b"
+    },
+    "cldr-zh.xml": {
+      "bytes": 390039,
+      "sha256": "d3245124cdf318c04a0a7c8d8d25d8b432dd803f3d9677c5655515b53578e2e4"
+    }
+  },
+  "cities": 319,
+  "countries": {
+    "CN": 302,
+    "TW": 9,
+    "KR": 8
+  },
+  "files": {
+    "CN/CN-BJ": {
+      "file": "CN/CN-BJ.json",
+      "bytes": 4012,
+      "gzipBytes": 1447,
+      "sha256": "8e0a804d3898eadd3d99127f470b50a25943da7f5c7c1144ad72cf7cb20bad74",
+      "cities": 1
+    },
+    "CN/CN-TJ": {
+      "file": "CN/CN-TJ.json",
+      "bytes": 4290,
+      "gzipBytes": 1511,
+      "sha256": "43c84adc2ca30c63fecebc8dd7a3526527f0f87609bc349871b1bc6f97dbb704",
+      "cities": 1
+    },
+    "CN/CN-HE": {
+      "file": "CN/CN-HE.json",
+      "bytes": 37699,
+      "gzipBytes": 11592,
+      "sha256": "78f1fb9fdf1c42648f54ac647ab697eb2f1264ba0fb54c1b125caf9a81ffcf3d",
+      "cities": 11
+    },
+    "CN/CN-SX": {
+      "file": "CN/CN-SX.json",
+      "bytes": 32395,
+      "gzipBytes": 8870,
+      "sha256": "9ba4753315a29ed7abe05864f84d181869b40aea737b62b0f3cbbc25ea434197",
+      "cities": 11
+    },
+    "CN/CN-NM": {
+      "file": "CN/CN-NM.json",
+      "bytes": 59019,
+      "gzipBytes": 19705,
+      "sha256": "f0d7b79b2d4d77a2c6f81c81a707a64c70bbabfc0c3c333e4bb2e755a62cd699",
+      "cities": 9
+    },
+    "CN/CN-LN": {
+      "file": "CN/CN-LN.json",
+      "bytes": 59475,
+      "gzipBytes": 17858,
+      "sha256": "2d9cdc6c65c22bea14764a5c477b0833a47a5fb6a7eb4d10de9a9e353c78347c",
+      "cities": 14
+    },
+    "CN/CN-JL": {
+      "file": "CN/CN-JL.json",
+      "bytes": 34952,
+      "gzipBytes": 10087,
+      "sha256": "51a2f2d07c0f3e005e62bd7d9070226eb47c7bb7070811d9bae2aa729521fd0f",
+      "cities": 8
+    },
+    "CN/CN-HL": {
+      "file": "CN/CN-HL.json",
+      "bytes": 69996,
+      "gzipBytes": 21249,
+      "sha256": "a63a42712027e04a85d15f15525025aca7880c6795acb22c8a4dc01bdfb6660d",
+      "cities": 12
+    },
+    "CN/CN-SH": {
+      "file": "CN/CN-SH.json",
+      "bytes": 4436,
+      "gzipBytes": 1508,
+      "sha256": "3d94ff6f0f0acd4c793eb95b2eaaea36457dbdbc53a1ad0a18129a5545281b52",
+      "cities": 1
+    },
+    "CN/CN-JS": {
+      "file": "CN/CN-JS.json",
+      "bytes": 40374,
+      "gzipBytes": 11933,
+      "sha256": "b1fa9b6baf76c15655d3d849cf9ccfa75c1d11efb5e03dae843bb4865eb3bd36",
+      "cities": 13
+    },
+    "CN/CN-ZJ": {
+      "file": "CN/CN-ZJ.json",
+      "bytes": 53761,
+      "gzipBytes": 15825,
+      "sha256": "0a4abe859956b356ac008eb457d6f68894e068a1bb9eca0918590a90af34d947",
+      "cities": 11
+    },
+    "CN/CN-AH": {
+      "file": "CN/CN-AH.json",
+      "bytes": 39456,
+      "gzipBytes": 10842,
+      "sha256": "0b079f2f98884416940859c79d2bf82d047c54ba36cdee3b477e65a308d8a3ad",
+      "cities": 16
+    },
+    "CN/CN-FJ": {
+      "file": "CN/CN-FJ.json",
+      "bytes": 78894,
+      "gzipBytes": 23716,
+      "sha256": "1a4ac0a6c4e4680fb8cc23c497db464157455d2345b86025ec813509231d9a64",
+      "cities": 9
+    },
+    "CN/CN-JX": {
+      "file": "CN/CN-JX.json",
+      "bytes": 39649,
+      "gzipBytes": 11050,
+      "sha256": "eb1ff0bcedf9f8cfe513f6d045fd9d7e4972c2d3ee5f20fe15d588c5b4759fab",
+      "cities": 11
+    },
+    "CN/CN-SD": {
+      "file": "CN/CN-SD.json",
+      "bytes": 69486,
+      "gzipBytes": 20357,
+      "sha256": "e74663901af7f8463ec06e55115ced15a29325b2d57609b35c24ffb87d4542be",
+      "cities": 17
+    },
+    "CN/CN-HA": {
+      "file": "CN/CN-HA.json",
+      "bytes": 43373,
+      "gzipBytes": 11725,
+      "sha256": "88f1ba02dbb495731d3097d1d043d3b7b3ebacda5ec8e1d8b422934f6b185c49",
+      "cities": 18
+    },
+    "CN/CN-HB": {
+      "file": "CN/CN-HB.json",
+      "bytes": 38682,
+      "gzipBytes": 10564,
+      "sha256": "f351fc78debdca37547da841ab6b1af92cadc4a0ee34003712704be569464841",
+      "cities": 15
+    },
+    "CN/CN-HN": {
+      "file": "CN/CN-HN.json",
+      "bytes": 48766,
+      "gzipBytes": 13917,
+      "sha256": "15d2cf680e22f365138f17a03ffab9ccf271ccca991e5ee20a5cc197d8792cc5",
+      "cities": 13
+    },
+    "CN/CN-GD": {
+      "file": "CN/CN-GD.json",
+      "bytes": 103232,
+      "gzipBytes": 30973,
+      "sha256": "ae5fe25c3fc07cea676e9dfea5cb0b0d7b7bc0376e47a769ddc77a09799f5263",
+      "cities": 21
+    },
+    "CN/CN-GX": {
+      "file": "CN/CN-GX.json",
+      "bytes": 71786,
+      "gzipBytes": 21010,
+      "sha256": "326248d4973cc2127359fef7c5655e8f36bf82299d9f9ac120462acff2c399d5",
+      "cities": 14
+    },
+    "CN/CN-HI": {
+      "file": "CN/CN-HI.json",
+      "bytes": 32464,
+      "gzipBytes": 9505,
+      "sha256": "033eec4fe910e1c79a6fed4a6176d13c76f8f50eab8287919d631f0b3693be70",
+      "cities": 4
+    },
+    "CN/CN-CQ": {
+      "file": "CN/CN-CQ.json",
+      "bytes": 10601,
+      "gzipBytes": 3749,
+      "sha256": "6f1594c9e7e42223039b38ee4ef3b9f6700835a6526de692a0ab41852f49285f",
+      "cities": 1
+    },
+    "CN/CN-SC": {
+      "file": "CN/CN-SC.json",
+      "bytes": 51707,
+      "gzipBytes": 14554,
+      "sha256": "edfbf77238467aea8e1c8c221a518561b307c7c43b0e9b11c0e5bbad3a7b5bfb",
+      "cities": 18
+    },
+    "CN/CN-GZ": {
+      "file": "CN/CN-GZ.json",
+      "bytes": 22990,
+      "gzipBytes": 6895,
+      "sha256": "872bc9d18aaa651151787bc6631c7716ef26232a789d921ddc69249f98b6b1f3",
+      "cities": 6
+    },
+    "CN/CN-YN": {
+      "file": "CN/CN-YN.json",
+      "bytes": 40273,
+      "gzipBytes": 12576,
+      "sha256": "649839b71ee05bd0710670f3568d34ae21c9329540f40613ab26576f1dc86f21",
+      "cities": 8
+    },
+    "CN/CN-XZ": {
+      "file": "CN/CN-XZ.json",
+      "bytes": 68562,
+      "gzipBytes": 21970,
+      "sha256": "ca2c3adb9d23550f46334187c8d1998de02cc1c58a5c730d4907c463c4a84c33",
+      "cities": 5
+    },
+    "CN/CN-SN": {
+      "file": "CN/CN-SN.json",
+      "bytes": 34808,
+      "gzipBytes": 9822,
+      "sha256": "3bcdd3d4f0b4e63eaf8fc346e7f7d831f91857a69f02d63c55a510288f7aeb74",
+      "cities": 10
+    },
+    "CN/CN-GS": {
+      "file": "CN/CN-GS.json",
+      "bytes": 43739,
+      "gzipBytes": 13184,
+      "sha256": "9a03cd89d26a2015dc8a3a25676dde3cf49b3b933096dee1f943db1c7c40c8db",
+      "cities": 12
+    },
+    "CN/CN-QH": {
+      "file": "CN/CN-QH.json",
+      "bytes": 4751,
+      "gzipBytes": 1607,
+      "sha256": "883d59fcae664e63e10442d6a758a3a6eb06e385ebe686f28fcc7337a32f5354",
+      "cities": 2
+    },
+    "CN/CN-NX": {
+      "file": "CN/CN-NX.json",
+      "bytes": 9163,
+      "gzipBytes": 2908,
+      "sha256": "8a97a6d46c225580f841661e1a072f6b915bb70813067d23acf7031a9b0498ab",
+      "cities": 5
+    },
+    "CN/CN-XJ": {
+      "file": "CN/CN-XJ.json",
+      "bytes": 14127,
+      "gzipBytes": 4947,
+      "sha256": "c6955d695fca018f27f8d24db6eb30aa2297ccd63220d5a8d80bfa7339306e08",
+      "cities": 5
+    },
+    "TW": {
+      "file": "TW.json",
+      "bytes": 66880,
+      "gzipBytes": 19498,
+      "sha256": "bf20e5e0381c377b56383fbf6286a16820959bd705d4bbb7b96726d0e674732b",
+      "cities": 9
+    },
+    "KR": {
+      "file": "KR.json",
+      "bytes": 7120,
+      "gzipBytes": 2519,
+      "sha256": "2392e480f4ed808863db58e84830a21d4b356375f4bbdbdf9b965efdfb00810c",
+      "cities": 8
+    }
+  },
+  "bytes": 1340918,
+  "gzipBytes": 399473,
+  "skipped": [
+    {
+      "name": "Alxa League",
+      "reason": "not-confirmed-city",
+      "type": "League"
+    },
+    {
+      "name": "Hinggan League",
+      "reason": "not-confirmed-city",
+      "type": "League"
+    },
+    {
+      "name": "Xilingol League",
+      "reason": "not-confirmed-city",
+      "type": "League"
+    },
+    {
+      "name": "Yanbian Korean Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Daxinganling Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Enshi Tujia and Miao Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Shennongjia Forestry District",
+      "reason": "not-confirmed-city",
+      "type": "Forestry district"
+    },
+    {
+      "name": "Xiangxi Tujia and Miao Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Baisha Li Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Baoting Li and Miao Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Changjiang Li Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Chengmai County",
+      "reason": "not-confirmed-city",
+      "type": "County"
+    },
+    {
+      "name": "Ding'an County",
+      "reason": "not-confirmed-city",
+      "type": "County"
+    },
+    {
+      "name": "Dongfang City",
+      "reason": "not-confirmed-city",
+      "type": "County-level City"
+    },
+    {
+      "name": "Ledong Li Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Lingao County",
+      "reason": "not-confirmed-city",
+      "type": "County"
+    },
+    {
+      "name": "Lingshui Li Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Qionghai City",
+      "reason": "not-confirmed-city",
+      "type": "County-level City"
+    },
+    {
+      "name": "Qiongzhong Li and Miao Autonomous County",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous County"
+    },
+    {
+      "name": "Tunchang County",
+      "reason": "not-confirmed-city",
+      "type": "County"
+    },
+    {
+      "name": "Wanning City",
+      "reason": "not-confirmed-city",
+      "type": "County-level City"
+    },
+    {
+      "name": "Wuzhishan City",
+      "reason": "not-confirmed-city",
+      "type": "County-level City"
+    },
+    {
+      "name": "Garzê Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Liangshan Yi Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Ngawa Tibetan and Qiang Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Qiandongnan Miao and Dong Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Qiannan Buyi and Miao Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Qianxinan Buyi and Miao Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Chuxiong Yi Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Dêqên Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Dali Bai Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Dehong Dai and Jingpo Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Honghe Hani and Yi Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Nujiang Lisu Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Wenshan Zhuang and Miao Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Xishuangbanna Dai Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Nagqu Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Ngari Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Gannan Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Linxia Hui Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Golog Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Haibei Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Hainan Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Haixi Mongolian Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Huangnan Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Yushu Tibetan Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Aksu Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Altay Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Bayingolin Mongolia Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Bortala Mongol Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Changji Hui Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Hotan Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Ili Kazak Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Sub-province-level prefecture"
+    },
+    {
+      "name": "Kashi Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Kizilsu Kirgiz Autonomous Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Autonomous prefecture"
+    },
+    {
+      "name": "Tarbaĝatay Prefecture",
+      "reason": "not-confirmed-city",
+      "type": "Prefecture"
+    },
+    {
+      "name": "Taiwan province",
+      "reason": "not-confirmed-city",
+      "type": ""
+    },
+    {
+      "name": "Hong Kong Special Administrative Region",
+      "reason": "not-confirmed-city",
+      "type": "Special Administrative Region"
+    },
+    {
+      "name": "Macao Special Administrative Region",
+      "reason": "not-confirmed-city",
+      "type": "Special Administrative Region"
+    }
+  ],
+  "marginMeters": 2500,
+  "additionalDPToleranceDegrees": 0.001,
+  "sourceBoundaryUncertainty": "Simplified archival administrative data; conservative boundary guard, not survey accuracy."
+}

@@ -1,0 +1,19 @@
+{
+  "name": "pocket-mappori-ios-web",
+  "private": true,
+  "version": "1.7.5.2",
+  "type": "module",
+  "scripts": {
+    "serve": "node serve.mjs",
+    "sync": "cap sync ios",
+    "open": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/geolocation": "^7.1.4",
+    "@capacitor/ios": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}

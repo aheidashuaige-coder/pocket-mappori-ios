@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-21T13:18:37+00:00",
+  "tiles": [
+    {
+      "id": "v1-523-320",
+      "version": "20261021-dabe5ac8",
+      "path": "tiles/v1-523-320-20261021-dabe5ac8.json",
+      "bytes": 76443,
+      "sha256": "3fe804848cb26caaf92fd9552663b8b57a3af83c5941d477db1bbdeed7ac58d1",
+      "bounds": [
+        -73.976,
+        40.768,
+        -73.969,
+        40.775
+      ],
+      "name": "纽约中央公园南部局部",
+      "source": "© OpenStreetMap contributors · https://www.openstreetmap.org/copyright",
+      "license": "ODbL-1.0"
+    }
+  ]
+}

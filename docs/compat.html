@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN" data-startup-mode="compatibility">
+<head><script>(function () {
+  var events = [];
+  var finished = false;
+  var storageKey = "pocket-mappori:startup-diagnostics";
+  var mode = document.documentElement.dataset.startupMode || "normal";
+  function assetPath(value) {
+    try {
+      var url = new URL(value, location.href);
+      if (url.origin !== location.origin) return undefined;
+      return /^\/(assets\/[\w.-]+\.(js|css)|index\.html|compat\.html)$/.test(
+        url.pathname,
+      )
+        ? url.pathname
+        : undefined;
+    } catch (_) {
+      return undefined;
+    }
+  }
+  function trace() {
+    return {
+      mode: mode,
+      stages: window.__pocketStartupTrace || [],
+      issues: window.__pocketStartupIssues || [],
+      events: events.slice(),
+    };
+  }
+  function record(type, error, asset) {
+    if (
+      finished ||
+      (!document.getElementById("startup-shell") &&
+        document.readyState === "complete")
+    )
+      return;
+    var frames = [];
+    if (error && typeof error.stack === "string") {
+      frames = (
+        error.stack.match(/\/assets\/[\w.-]+\.js:\d+:\d+/g) || []
+      ).slice(0, 10);
+    }
+    events.push({
+      type: type,
+      atMs: Math.round(performance.now()),
+      errorType:
+        error &&
+        /^(Error|TypeError|ReferenceError|SyntaxError|RangeError|SecurityError|NotSupportedError|AbortError)$/.test(
+          error.name,
+        )
+          ? error.name
+          : undefined,
+      asset: assetPath(asset || ""),
+      frames: frames,
+    });
+    if (events.length > 50) events.shift();
+  }
+  window.__pocketStartupDiagnostic = record;
+  window.__pocketRevealStartupLog = function () {
+    var button = document.getElementById("startup-log");
+    if (button && !finished) button.hidden = false;
+  };
+  window.addEventListener(
+    "error",
+    function (event) {
+      if (event.target === window)
+        record("javascript-error", event.error, event.filename);
+      else {
+        var element = event.target;
+        if (
+          element &&
+          (element.tagName === "SCRIPT" || element.tagName === "LINK")
+        )
+          record("resource-error", null, element.src || element.href);
+      }
+    },
+    true,
+  );
+  window.addEventListener("unhandledrejection", function (event) {
+    record("unhandled-rejection", event.reason);
+  });
+  window.addEventListener("vite:preloadError", function (event) {
+    record("module-preload-error", event.payload);
+  });
+  window.addEventListener("pagehide", function () {
+    if (finished) return;
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(trace()));
+    } catch (_) {}
+  });
+  document.addEventListener("click", function (event) {
+    if (!event.target || event.target.id !== "startup-log") return;
+    var button = event.target;
+    if (button.hidden || button.disabled) return;
+    button.disabled = true;
+    var status = document.getElementById("startup-log-status");
+    function exportLog(device) {
+      var previous;
+      try {
+        previous = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+      } catch (_) {}
+      var resources = performance
+        .getEntriesByType("resource")
+        .map(function (entry) {
+          var path = assetPath(entry.name);
+          return path
+            ? {
+                path: path,
+                ms: Math.round(entry.duration),
+                bytes: entry.encodedBodySize,
+                status: entry.responseStatus,
+              }
+            : null;
+        })
+        .filter(Boolean)
+        .slice(-60);
+      var json = JSON.stringify(
+        {
+          format: 1,
+          device: device,
+          userAgent: navigator.userAgent,
+          viewport: {
+            width: innerWidth,
+            height: innerHeight,
+            scale: devicePixelRatio,
+          },
+          attempt: trace(),
+          previousAttempt: previous,
+          resources: resources,
+        },
+        null,
+        2,
+      );
+      var name =
+        "Pocket-Mappori-startup-" +
+        new Date().toISOString().replace(/[:.]/g, "-") +
+        ".json";
+      if (nativeSend) {
+        var bytes = new TextEncoder().encode(json);
+        var encoded = "";
+        for (var i = 0; i < bytes.length; i++)
+          encoded += String.fromCharCode(bytes[i]);
+        return nativeSend("beginExport", { bytes: bytes.length }).then(
+          function () {
+            return nativeSend("appendExport", { data: btoa(encoded) })
+              .then(function () {
+                return nativeSend("finishExport", { name: name });
+              })
+              .finally(function () {
+                return nativeSend("clearTransfer", {}).catch(function () {});
+              });
+          },
+        );
+      }
+      var url = URL.createObjectURL(
+        new Blob([json], { type: "application/json" }),
+      );
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = name;
+      link.click();
+      setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 1000);
+      return Promise.resolve();
+    }
+    var native = window.Capacitor;
+    var nativeSend =
+      native &&
+      native.getPlatform &&
+      native.getPlatform() === "android" &&
+      native.nativePromise
+        ? function (method, options) {
+            return native.nativePromise("SaveFiles", method, options);
+          }
+        : null;
+    (nativeSend
+      ? nativeSend("startupDevice", {}).catch(function () {})
+      : Promise.resolve()
+    )
+      .then(exportLog)
+      .then(
+        function (result) {
+          status.hidden = !!(result && result.cancelled);
+          status.textContent = status.hidden ? "" : "启动日志已导出。";
+        },
+        function () {
+          status.hidden = false;
+          status.textContent = "启动日志导出失败，请重试。";
+        },
+      )
+      .finally(function () {
+        button.disabled = false;
+      });
+  });
+  window.__pocketStartupDiagnosticReady = function () {
+    finished = true;
+    try {
+      sessionStorage.removeItem(storageKey);
+    } catch (_) {}
+  };
+  record("shell-script");
+})();
+</script>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Pocket Mappori · 兼容启动</title>
+<style>
+.startup1813{position:fixed;inset:0;z-index:999;display:grid;place-content:center;justify-items:center;gap:16px;padding:24px;background:#f8faf4;color:#294b3c;font:14px/1.6 system-ui,sans-serif;text-align:center}.startup1813 h1,.startup1813 p{margin:0}.startup1813 button{min-height:44px;padding:8px 24px;border-radius:12px;border:0;background:#deebe1;color:#294b3c;font:inherit}.startup1813 a{color:inherit;padding:8px}.startup1813 [hidden]{display:none!important}
+@media(prefers-color-scheme:dark){.startup1813{background:#1e3039;color:#e0eae2}}
+</style>
+  <script type="module" crossorigin src="./assets/compat-BzcSz2Ak.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/trace-Cz_0O3Cz.js">
+</head>
+<body>
+<section id="startup-shell" class="startup1813">
+<h1>Pocket Mappori</h1><p id="startup-phase" role="status">正在兼容启动…</p>
+<progress id="startup-progress" aria-label="当前启动阶段进行中"></progress><small id="startup-count"></small><button id="startup-log" type="button" hidden>导出启动日志</button><small id="startup-log-status" role="status" hidden></small>
+<button id="startup-export" type="button" hidden>导出原始存档</button>
+<a id="startup-retry" href="./index.html">正常启动</a>
+</section>
+<div id="root"></div>
+<script>
+(() => {
+  const status = document.getElementById('startup-phase');
+  const button = document.getElementById('startup-export');
+  const name = 'Pocket-Mappori-原始存档.json';
+  const fail = () => {
+    window.__pocketRevealStartupLog?.();
+    button.hidden = false;
+    status.textContent = '游戏资料未能加载，可导出原始存档。';
+    document.getElementById('startup-progress').hidden = true;
+  };
+  window.__pocketStartupWatchdog = setTimeout(() => { window.__pocketStartupDiagnostic?.("watchdog"); fail(); }, 18000);
+  window.addEventListener('error', (event) => {
+    if (!(event.target instanceof HTMLScriptElement) || event.target.type !== 'module') return;
+    clearTimeout(window.__pocketStartupWatchdog);
+    fail();
+  }, true);
+  button.addEventListener('click', async () => {
+    if (button.disabled) return;
+    button.disabled = true;
+    try {
+      const raw = localStorage.getItem('pocket-wander:save:v1');
+      if (!raw) {
+        status.textContent = '未找到可导出的原始存档。';
+        return;
+      }
+      const native = window.Capacitor;
+      if (native?.getPlatform?.() === 'android' && native.nativePromise) {
+        const bytes = new TextEncoder().encode(raw);
+        if (bytes.length > 16 * 1024 * 1024) throw Error('size');
+        const send = (method, options) => native.nativePromise('SaveFiles', method, options);
+        await send('beginExport', {bytes: bytes.length});
+        try {
+          const chunkSize = 128 * 1024;
+          for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+            let chunk = '';
+            for (const byte of bytes.subarray(offset, offset + chunkSize))
+              chunk += String.fromCharCode(byte);
+            await send('appendExport', {data: btoa(chunk)});
+          }
+          if (!(await send('finishExport', {name}))?.cancelled)
+            status.textContent = '原始存档已保存。';
+        } finally {
+          await send('clearTransfer', {}).catch(() => {});
+        }
+      } else {
+        const url = URL.createObjectURL(new Blob([raw], {type:'application/json'}));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = name;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+    } catch {
+      status.textContent = '原始存档导出失败。';
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
