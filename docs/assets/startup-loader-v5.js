@@ -1,6 +1,9 @@
 window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
+const RUNTIME_CDN =
+  "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@main/";
+
 function beginStage(name) {
   window.__pocketStartupTrace.push({
     stage: name,
@@ -31,7 +34,11 @@ function reportIssue(code, module, error) {
 beginStage("resources");
 
 async function importApplication() {
-  return import("./application-BAdagfOj-fix2.js");
+  try {
+    return await import(`${RUNTIME_CDN}application-BAdagfOj-fix2.js`);
+  } catch {
+    return import("./application-BAdagfOj-fix2.js");
+  }
 }
 
 function showError(label, error) {
