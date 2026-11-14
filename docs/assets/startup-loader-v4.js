@@ -1,9 +1,3 @@
-const CDN_BASES = [
-  "https://gcore.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
-  "https://fastly.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
-  "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-ios@main/docs/assets/",
-];
-
 window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
@@ -36,34 +30,7 @@ function reportIssue(code, module, error) {
 
 beginStage("resources");
 
-async function canUseCdn(base) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 6000);
-  try {
-    const response = await fetch(`${base}platform-BDeA0pL1.js`, {
-      method: "HEAD",
-      cache: "no-store",
-      signal: controller.signal,
-    });
-    return response.ok && response.headers.get("content-type")?.includes("javascript");
-  } catch {
-    return false;
-  } finally {
-    clearTimeout(timeout);
-  }
-}
-
 async function importApplication() {
-  const reachableBases = await Promise.all(
-    CDN_BASES.map(async (base) => ((await canUseCdn(base)) ? base : null)),
-  );
-  for (const base of reachableBases.filter(Boolean)) {
-    try {
-      return await import(`${base}application-BAdagfOj-fix2.js`);
-    } catch {
-      // Try the next CDN before falling back to the GitHub Pages copy.
-    }
-  }
   return import("./application-BAdagfOj-fix2.js");
 }
 
