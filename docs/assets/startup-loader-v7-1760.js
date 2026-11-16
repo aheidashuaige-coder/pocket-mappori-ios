@@ -1,9 +1,6 @@
 window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
-const RUNTIME_CDN =
-  "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@55ceea53afb98876addb9644b844935f66c9294b/";
-
 function beginStage(name) {
   window.__pocketStartupTrace.push({
     stage: name,
@@ -36,17 +33,24 @@ function reportIssue(code, module, error) {
 beginStage("resources");
 
 async function importApplication() {
-  let timer;
-  const timeout = new Promise((resolve) => {
-    timer = setTimeout(() => resolve(null), 6000);
-  });
-  const remote = import(`${RUNTIME_CDN}application-BMMUDZNB-1760.js`).catch(
-    () => null,
-  );
-  const module = await Promise.race([remote, timeout]);
-  clearTimeout(timer);
-  return module ?? import("./application-BMMUDZNB-1760.js");
+  return import("./application-BMMUDZNB-1760.js");
 }
+
+window.addEventListener("vite:preloadError", (event) => {
+  const error = event.payload;
+  try {
+    localStorage.setItem(
+      "pocket-mappori:last-module-error:v1",
+      JSON.stringify({
+        at: Date.now(),
+        page: location.href,
+        name: error instanceof Error ? error.name : typeof error,
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack?.slice(0, 8000) : undefined,
+      }),
+    );
+  } catch {}
+});
 
 function showError(label, error) {
   const status = document.getElementById("startup-phase");

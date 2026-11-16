@@ -2,11 +2,14 @@
 
 Pocket Mappori 1.7.6.0 的 iOS Web/PWA 版本，包含精灵球主屏图标和本次功能修改。
 
+当前 iOS 版本全部从同一个 GitHub Pages 站点加载，不依赖独立 CDN
+仓库，避免 Safari 在跨域动态模块和本地后备模块之间创建两份 React。
+
 ## 在 iPhone Safari 中打开
 
 在 iPhone Safari 中打开：
 
-`https://aheidashuaige-coder.github.io/pocket-mappori-ios/?launch=1760&build=20261116`
+`https://aheidashuaige-coder.github.io/pocket-mappori-ios/?launch=1760r2&build=20261116r2`
 
 然后按以下步骤安装到主屏：
 
@@ -20,7 +23,7 @@ Pocket Mappori 1.7.6.0 的 iOS Web/PWA 版本，包含精灵球主屏图标和�
 首次使用定位功能时，选择“允许”，并确保“设置 → 隐私与安全性 → 定位服务 → Safari 网站”没有被关闭。
 
 如果此前已经添加过旧图标，请先删除旧主屏图标，再使用
-`https://aheidashuaige-coder.github.io/pocket-mappori-ios/?launch=1760&build=20261116`
+`https://aheidashuaige-coder.github.io/pocket-mappori-ios/?launch=1760r2&build=20261116r2`
 重新添加，避免 Safari 继续使用旧版启动缓存。
 
 不要直接双击本地 `index.html`，也不要通过 `file://` 地址打开。iOS 需要通过 HTTPS 访问才能正常加载模块并申请定位权限。
