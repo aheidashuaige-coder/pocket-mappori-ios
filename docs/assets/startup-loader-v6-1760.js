@@ -2,7 +2,7 @@ window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
 const RUNTIME_CDN =
-  "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@v1.7.6.0/";
+  "https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@55ceea53afb98876addb9644b844935f66c9294b/";
 
 function beginStage(name) {
   window.__pocketStartupTrace.push({
