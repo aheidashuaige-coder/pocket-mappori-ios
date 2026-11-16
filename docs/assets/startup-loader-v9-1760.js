@@ -1,6 +1,17 @@
 window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
+const RUNTIME_COMMIT =
+  "55ceea53afb98876addb9644b844935f66c9294b";
+const CDN_BASES = [
+  `https://fastly.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${RUNTIME_COMMIT}/`,
+  `https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${RUNTIME_COMMIT}/`,
+  `https://gcore.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${RUNTIME_COMMIT}/`,
+  `https://testingcf.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${RUNTIME_COMMIT}/`,
+  `https://cdn.statically.io/gh/aheidashuaige-coder/pocket-mappori-runtime/${RUNTIME_COMMIT}/`,
+];
+const LOCAL_BASE = new URL("./", import.meta.url).href;
+
 function beginStage(name) {
   window.__pocketStartupTrace.push({
     stage: name,
@@ -32,19 +43,66 @@ function reportIssue(code, module, error) {
 
 beginStage("resources");
 
-async function importApplication() {
-  const slowTimer = setTimeout(() => {
-    const status = document.getElementById("startup-phase");
-    if (status) {
-      status.textContent =
-        "正在下载首次启动资源，请保持页面打开，不要反复点重试。";
-    }
-  }, 12000);
+async function probeBase(base) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 6000);
   try {
-    return await import("./application-BMMUDZNB-1760.js");
+    const response = await fetch(`${base}startup-loader-v6-1760.js`, {
+      cache: "no-store",
+      mode: "cors",
+      signal: controller.signal,
+    });
+    if (!response.ok) throw Error(`HTTP ${response.status}`);
+    return base;
   } finally {
-    clearTimeout(slowTimer);
+    clearTimeout(timer);
   }
+}
+
+async function importFrom(base) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(
+      () => reject(Error(`模块下载超时：${base}`)),
+      45000,
+    );
+  });
+  try {
+    return await Promise.race([
+      import(`${base}application-BMMUDZNB-1760.js`),
+      timeout,
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function importApplication() {
+  const available = [];
+  await Promise.all(
+    CDN_BASES.map(async (base, index) => {
+      try {
+        await probeBase(base);
+        available.push({ base, index });
+      } catch (error) {
+        reportIssue("CDN_PROBE", base, error);
+      }
+    }),
+  );
+  available.sort((left, right) => left.index - right.index);
+
+  const status = document.getElementById("startup-phase");
+  for (const { base } of available) {
+    if (status) status.textContent = "正在连接高速资源服务器…";
+    try {
+      return await importFrom(base);
+    } catch (error) {
+      reportIssue("CDN_IMPORT", base, error);
+    }
+  }
+
+  if (status) status.textContent = "正在使用本站备用资源…";
+  return importFrom(LOCAL_BASE);
 }
 
 window.addEventListener("vite:preloadError", (event) => {
