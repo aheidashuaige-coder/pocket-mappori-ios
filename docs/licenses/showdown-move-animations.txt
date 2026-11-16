@@ -1,0 +1,47 @@
+Pokémon Showdown battle move choreography
+
+Upstream: Guangcong Luo and Pokémon Showdown contributors
+Repository: https://github.com/smogon/pokemon-showdown-client
+Revision: f49fca99f83d7b61495c45274092de0dfe7de071
+
+Move animation definitions (CC0-1.0):
+https://github.com/smogon/pokemon-showdown-client/blob/f49fca99f83d7b61495c45274092de0dfe7de071/play.pokemonshowdown.com/src/battle-animations-moves.ts
+CC0-1.0 legal text:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The import also reads the isolated effect dimensions and supporting animation
+tables from battle-animations.ts at the same revision:
+https://github.com/smogon/pokemon-showdown-client/blob/f49fca99f83d7b61495c45274092de0dfe7de071/play.pokemonshowdown.com/src/battle-animations.ts
+The source header identifies the standalone replay/animation engine as MIT
+and most resource definitions and miscellaneous animation data as CC0.
+The MIT permission notice appears below for any MIT-covered material used.
+
+Pocket Mappori records move timings, paths, and aliases at build preparation in
+scripts/generate-showdown-battle-animations.mjs. Generated timelines are kept in
+src/battle/fx/showdown-data.json. Local Canvas artwork supplies all effects and
+backdrops. This import includes no upstream effect images, Pokémon sprites,
+background images, audio, or client runtime. The upstream project's repository-
+wide AGPL licensing does not change the licensing of the isolated material
+identified above.
+
+MIT License
+
+Copyright (c) Guangcong Luo and Pokémon Showdown contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
