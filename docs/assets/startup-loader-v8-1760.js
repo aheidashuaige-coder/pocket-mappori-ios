@@ -33,7 +33,18 @@ function reportIssue(code, module, error) {
 beginStage("resources");
 
 async function importApplication() {
-  return import("./application-BMMUDZNB-1760.js");
+  const slowTimer = setTimeout(() => {
+    const status = document.getElementById("startup-phase");
+    if (status) {
+      status.textContent =
+        "正在下载首次启动资源，请保持页面打开，不要反复点重试。";
+    }
+  }, 12000);
+  try {
+    return await import("./application-BMMUDZNB-1760.js");
+  } finally {
+    clearTimeout(slowTimer);
+  }
 }
 
 window.addEventListener("vite:preloadError", (event) => {
