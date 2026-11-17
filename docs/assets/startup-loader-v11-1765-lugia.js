@@ -1,9 +1,9 @@
 window.__pocketStartupTrace = window.__pocketStartupTrace || [];
 window.__pocketStartupIssues = window.__pocketStartupIssues || [];
 
-const APP_FILE = "application-uVaYIh_a-1765.js";
+const APP_FILE = "application-uVaYIh_a-1765-lugia.js";
 const HEALTH_FILE = "health-1765.json";
-const COMMIT = "cb4329b293377c31ea84a46165f221354b20672a";
+const COMMIT = "932957765d6f602c283eede4fdbe9ee2941d3815";
 const CDN_BASES = [
   `https://fastly.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${COMMIT}/`,
   `https://cdn.jsdelivr.net/gh/aheidashuaige-coder/pocket-mappori-runtime@${COMMIT}/`,

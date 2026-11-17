@@ -1,4 +1,4 @@
-const CACHE_NAME = "pocket-mappori-runtime-1765-v1";
+const CACHE_NAME = "pocket-mappori-runtime-1765-v2";
 const RUNTIME_MARK = "pocket-mappori-runtime";
 
 self.addEventListener("install", () => self.skipWaiting());
