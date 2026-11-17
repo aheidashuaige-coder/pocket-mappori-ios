@@ -1,7 +1,7 @@
 {
   "name": "pocket-mappori-ios-web",
   "private": true,
-  "version": "1.7.6.0",
+  "version": "1.7.6.5",
   "type": "module",
   "scripts": {
     "serve": "node serve.mjs",

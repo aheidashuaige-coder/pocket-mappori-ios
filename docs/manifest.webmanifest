@@ -3,7 +3,7 @@
   "short_name": "Mappori",
   "description": "Pocket Mappori 口袋漫游，带上好奇心，发现身边的小小奇遇。",
   "lang": "zh-CN",
-  "start_url": "./index.html?launch=1760r4&build=20261116r4",
+  "start_url": "./index.html?launch=1765&build=20261117",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
